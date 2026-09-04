@@ -12,7 +12,6 @@ env:
   DOCKER_IMAGE_NAME: timo-tm-azure-ttt
   AZURE_WEBAPP_NAME: timo-tm-ttt-app
   AZURE_LOCATION: '"Sweden Central"'
-  ###############################################
 
 jobs:
   build:
