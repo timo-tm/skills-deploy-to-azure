@@ -10,7 +10,7 @@ env:
   AZURE_APP_PLAN: actions-ttt-deployment
   AZURE_LOCATION: '"Sweden Central"'
   ###############################################
-  ### Replace <username> with GitHub username ###
+  ### Replace <username> with jj  GitHub username ###
   ###############################################
   AZURE_WEBAPP_NAME: timo-tm-ttt-app
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
