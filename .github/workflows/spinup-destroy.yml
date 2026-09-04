@@ -8,11 +8,12 @@ env:
   IMAGE_REGISTRY_URL: ghcr.io
   AZURE_RESOURCE_GROUP: cd-with-actions
   AZURE_APP_PLAN: actions-ttt-deployment
-  AZURE_LOCATION: '"East US"'
+  AZURE_LOCATION: '"Sweden Central"'
   ###############################################
   ### Replace <username> with GitHub username ###
   ###############################################
   AZURE_WEBAPP_NAME: timo-tm-ttt-app
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
 jobs:
   setup-up-azure-resources:
