@@ -18,7 +18,9 @@ env:
 jobs:
   setup-up-azure-resources:
     runs-on: ubuntu-latest
+    
     if: contains(github.event.pull_request.labels.*.name, 'spin up environment')
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -47,6 +49,7 @@ jobs:
         if: success()
         run: |
           az webapp config container set --docker-custom-image-name nginx --docker-registry-server-password ${{secrets.CR_PAT}} --docker-registry-server-url https://${{env.IMAGE_REGISTRY_URL}} --docker-registry-server-user ${{github.actor}} --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.AZURE_RESOURCE_GROUP }} --subscription ${{secrets.AZURE_SUBSCRIPTION_ID}}
+
 
   destroy-azure-resources:
     runs-on: ubuntu-latest
