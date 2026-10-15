@@ -11,7 +11,8 @@ env:
   ###############################################
   DOCKER_IMAGE_NAME: timo-tm-azure-ttt
   AZURE_WEBAPP_NAME: timo-tm-ttt-app
-  ###############################################
+  AZURE_LOCATION: '"Sweden Central"'
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
 jobs:
   build:
@@ -20,15 +21,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
         with:
-          node-version: 16
+          node-version: 24
       - name: npm install and build webpack
         run: |
           npm install
           npm run build
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: webpack artifacts
           path: public/
@@ -39,10 +40,10 @@ jobs:
     name: Build image and store in GitHub Container Registry
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Download built artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: webpack artifacts
           path: public
